@@ -43,47 +43,54 @@ export default function FormularioPaciente({ onMenuGenerado }) {
     <div className="card">
       <h1 className="title">Planificador de Dieta Inteligente</h1>
       <form onSubmit={handleSubmit}>
+        <label className="label">Nombre:</label>
         <input
           className="input"
           name="nombre"
-          placeholder="Nombre"
           value={perfil.nombre}
           onChange={handleChange}
         />
+
+        <label className="label">Edad:</label>
         <input
           className="input"
           type="number"
           name="edad"
-          placeholder="Edad"
           value={perfil.edad}
           onChange={handleChange}
         />
+
+        <label className="label">Peso (kg):</label>
         <input
           className="input"
           type="number"
           name="peso"
-          placeholder="Peso (kg)"
           value={perfil.peso}
           onChange={handleChange}
         />
+
+        <label className="label">Altura (cm):</label>
         <input
           className="input"
           type="number"
           name="altura"
-          placeholder="Altura (cm)"
           value={perfil.altura}
           onChange={handleChange}
         />
+
+        <label className="label">Sexo:</label>
         <select
           className="select"
           name="sexo"
           value={perfil.sexo}
           onChange={handleChange}
         >
-          <option value="">Sexo</option>
+          <option value="">Selecciona...</option>
           <option value="M">Masculino</option>
           <option value="F">Femenino</option>
         </select>
+
+        <label className="label">Nivel de actividad:</label>
         <select
           className="select"
           name="actividad"
@@ -95,18 +102,50 @@ export default function FormularioPaciente({ onMenuGenerado }) {
           <option value="moderado">Moderado</option>
           <option value="intenso">Intenso</option>
         </select>
+
+        <div className="actividad-info">
+          {perfil.actividad === "sedentario" && (
+            <p>
+              <b>Sedentario:</b> Poco o nada de ejercicio, estilo de vida
+              mayormente sentado.
+            </p>
+          )}
+          {perfil.actividad === "ligero" && (
+            <p>
+              <b>Ligero:</b> Caminatas suaves o actividad física ligera 1-3
+              veces por semana.
+            </p>
+          )}
+          {perfil.actividad === "moderado" && (
+            <p>
+              <b>Moderado:</b> Ejercicio regular (30-60 min, 3-5 veces/semana),
+              ritmo cardiaco elevado.
+            </p>
+          )}
+          {perfil.actividad === "intenso" && (
+            <p>
+              <b>Intenso:</b> Entrenamiento vigoroso o deportes competitivos
+              frecuentes.
+            </p>
+          )}
+        </div>
+
+        <label className="label">
+          Patología o condiciones a especificar: (mencionar si se consume algún
+          medicamento)
+        </label>
         <input
           className="input"
           name="patologia"
-          placeholder="Patología o condición"
           value={perfil.patologia}
           onChange={handleChange}
         />
+
+        <label className="label">Presupuesto (MXN):</label>
         <input
           className="input"
           type="number"
           name="presupuesto"
-          placeholder="Presupuesto (MXN)"
           value={perfil.presupuesto}
           onChange={handleChange}
         />

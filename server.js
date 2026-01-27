@@ -6,8 +6,6 @@ import bodyParser from "body-parser";
 import dietRoutes from "./routes/dietRoutes.js";
 
 dotenv.config();
-
-// Inicializar Express
 const app = express();
 
 // Middlewares

@@ -38,8 +38,9 @@ export default function Layout({ children }) {
         <div className="right-panel">
           <div className="image-glass">
             <img
-              src="https://vitaliasalud.com/wp-content/uploads/2021/05/nutricio%CC%81n.jpg"
+              src="https://policlinicocontinental.pe/web/wp-content/uploads/2018/07/dieta-balanceada-saludable.jpeg"
               alt="nutiricion"
+              className="responsive-image"
             />
           </div>
         </div>

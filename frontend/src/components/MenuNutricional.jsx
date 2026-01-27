@@ -3,9 +3,14 @@ import "../styles/themes.css";
 export default function MenuNutricional({ calorias, menu }) {
   const sections = menu.split(/###\s+/).filter(Boolean);
 
+  const handlePrint = () => {
+    window.print();
+  };
+
   return (
     <div className="menu-wrapper">
-      <div className="menu-card">
+      {/* ÁREA QUE SE IMPRIME */}
+      <div className="menu-card print-area">
         <h1 className="menu-title">Tu menú personalizado</h1>
         <p className="menu-subtitle">
           Calorías objetivo: <strong>{Math.round(calorias)} kcal</strong>
@@ -17,7 +22,7 @@ export default function MenuNutricional({ calorias, menu }) {
             .filter((line) => line.trim().startsWith("-"))
             .map((line) => line.replace(/^-\s*/, ""));
           const notes = rest.filter(
-            (line) => !line.trim().startsWith("-") && line.trim()
+            (line) => !line.trim().startsWith("-") && line.trim(),
           );
 
           return (
@@ -40,6 +45,13 @@ export default function MenuNutricional({ calorias, menu }) {
             </div>
           );
         })}
+      </div>
+
+      {/* BOTÓN */}
+      <div className="menu-actions">
+        <button className="btn print-btn" onClick={handlePrint}>
+          Imprimir / Exportar a PDF
+        </button>
       </div>
     </div>
   );
