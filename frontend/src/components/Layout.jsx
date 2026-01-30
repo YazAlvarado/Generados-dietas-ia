@@ -1,5 +1,5 @@
 import "../styles/themes.css";
-
+import formularioImg from "../styles/multimedia/porciones.png";
 export default function Layout({ children }) {
   return (
     <div className="site-wrapper">
@@ -34,12 +34,12 @@ export default function Layout({ children }) {
           </div>
         </div>
 
-        {/* LADO DERECHO  */}
+        {/* LADO DERECHO — IMAGEN */}
         <div className="right-panel">
           <div className="image-glass">
             <img
-              src="https://policlinicocontinental.pe/web/wp-content/uploads/2018/07/dieta-balanceada-saludable.jpeg"
-              alt="nutiricion"
+              src={formularioImg}
+              alt="Imagen nutricional"
               className="responsive-image"
             />
           </div>

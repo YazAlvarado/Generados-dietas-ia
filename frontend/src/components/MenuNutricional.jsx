@@ -103,6 +103,9 @@ export default function MenuNutricional({ data }) {
           Imprimir / Exportar a PDF
         </button>
       </div>
+      <button className="btn" onClick={() => window.location.reload()}>
+        Crear otro plan
+      </button>
     </div>
   );
 }
