@@ -9,18 +9,19 @@ router.post("/plan-dieta", async (req, res) => {
   try {
     const { peso, altura, edad, sexo, actividad, patologia, presupuesto } =
       req.body;
+
     const calorias = calcularTMB(peso, altura, edad, sexo, actividad);
 
     const alimentos = await obtenerAlimentosPorCalorias(calorias);
 
     const menu = await generarMenuIA(
       { peso, altura, edad, sexo, patologia, calorias, presupuesto },
-      alimentos
+      alimentos,
     );
 
     res.json({ calorias, menu });
   } catch (error) {
-    console.error(error);
+    console.error("ERROR EN /plan-dieta:", error.message);
     res.status(500).json({ error: "Error al generar el plan de dieta" });
   }
 });

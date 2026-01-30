@@ -195,3 +195,13 @@ body {
     display: none;
   }
 }
+.label-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.label-with-icon img {
+  width: 20px;
+  height: 20px;
+}

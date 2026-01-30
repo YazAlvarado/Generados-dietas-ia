@@ -3,9 +3,10 @@ import "dotenv/config";
 
 const OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions";
 
+// Modelos en orden de prioridad (más barato → más potente)
 const modelosFallback = [
-  "openai/gpt-4o",
-  "anthropic/claude-3.5",
+  "openai/gpt-4o-mini",
+  "anthropic/claude-3.5-sonnet",
   "deepseek/deepseek-chat",
 ];
 
@@ -53,11 +54,7 @@ Devuelve exactamente esta estructura:
     "desayuno": {
       "platillo": "",
       "ingredientes": [
-        {
-          "nombre": "",
-          "cantidad": "",
-          "costo_mxn": 0
-        }
+        { "nombre": "", "cantidad": "", "costo_mxn": 0 }
       ],
       "preparacion": "",
       "calorias_kcal": 0,
@@ -83,6 +80,8 @@ Devuelve exactamente esta estructura:
 
   for (const modelo of modelosFallback) {
     try {
+      console.log(`Intentando modelo: ${modelo}`);
+
       const response = await axios.post(
         OPENROUTER_API_URL,
         {
@@ -107,12 +106,23 @@ Devuelve exactamente esta estructura:
 
       const contenido = response.data.choices[0].message.content;
 
-      // VALIDACIÓN REAL
-      return JSON.parse(contenido);
+      const jsonMatch = contenido.match(/\{[\s\S]*\}/);
+      if (!jsonMatch) throw new Error("La IA no devolvió JSON válido");
+
+      const resultado = JSON.parse(jsonMatch[0]);
+
+      console.log(`Respuesta válida obtenida con ${modelo}`);
+      return resultado;
     } catch (error) {
-      console.error(`Error con modelo ${modelo}:`, error.message);
+      console.error(`Error con modelo ${modelo}`);
+      console.error("Status:", error.response?.status);
+      console.error(
+        "Detalle:",
+        error.response?.data?.error || error.response?.data || error.message,
+      );
     }
   }
 
-  throw new Error("No se pudo generar el menú en formato JSON válido.");
+  // Si todos los modelos fallan
+  throw new Error("Ningún modelo de IA pudo generar el menú correctamente.");
 };

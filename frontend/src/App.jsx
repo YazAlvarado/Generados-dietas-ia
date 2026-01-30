@@ -11,7 +11,7 @@ export default function App() {
       {!menuData ? (
         <FormularioPaciente onMenuGenerado={setMenuData} />
       ) : (
-        <MenuNutricional calorias={menuData.calorias} menu={menuData.menu} />
+        <MenuNutricional data={menuData} />
       )}
     </Layout>
   );
