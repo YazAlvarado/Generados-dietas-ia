@@ -1,0 +1,210 @@
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #f3f6f9;
+  color: #263238;
+}
+
+.site-wrapper {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ---------------------------
+    HEADER 
+-----------------------------*/
+.header {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 18px 0;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #e4e7ea;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+}
+
+.header-inner {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0c665c;
+}
+
+.nav a {
+  margin-left: 25px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #405050;
+  font-weight: 500;
+  transition: 0.25s;
+}
+
+.nav a:hover {
+  color: #0f8f7b;
+}
+
+/* ---------------------------
+    CONTENEDOR PRINCIPAL
+-----------------------------*/
+.main-section {
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-between;
+  padding: 60px 5%;
+}
+
+/* ---------------------------
+    PANEL IZQUIERDO
+-----------------------------*/
+.left-panel {
+  width: 50%;
+}
+
+.panel-card {
+  background: white;
+  padding: 40px;
+  border-radius: 22px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+}
+
+.panel-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0d6f60;
+  margin-bottom: 10px;
+}
+
+.panel-desc {
+  font-size: 15px;
+  color: #546e7a;
+  margin-bottom: 25px;
+}
+
+.form-box {
+  margin-top: 10px;
+}
+
+/* ---------------------------
+    PANEL DERECHO (IMAGEN)
+-----------------------------*/
+.right-panel {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-glass {
+  width: 90%;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 25px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+}
+
+.image-glass img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+/* ---------------------------
+    FOOTER
+-----------------------------*/
+.footer {
+  text-align: center;
+  padding: 25px;
+  margin-top: 35px;
+  background: #eef3f0;
+  color: #607d8b;
+  font-size: 14px;
+  border-top: 1px solid #dce3e0;
+}
+
+/* ---------------------------
+    FORMULARIO
+-----------------------------*/
+.input,
+.select {
+  width: 100%;
+  padding: 13px 14px;
+  margin: 10px 0;
+  border-radius: 12px;
+  border: 1px solid #d9d9d9;
+  background: #fafafa;
+  font-size: 15px;
+}
+
+.btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  margin-top: 20px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #0e9e84, #087761);
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow: 0 6px 12px rgba(14, 158, 132, 0.35);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 20px rgba(14, 158, 132, 0.45);
+}
+
+.actividad-info {
+  margin-top: 8px;
+  padding: 10px;
+  background: #f5f5f5;
+  border-left: 4px solid #4caf50;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* ================== IMPRESIÓN ================== */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .print-area,
+  .print-area * {
+    visibility: visible;
+  }
+
+  .print-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .print-btn,
+  .menu-actions {
+    display: none;
+  }
+}
+
+.label-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.label-with-icon img {
+  width: 20px;
+  height: 20px;
+}
