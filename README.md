@@ -19,26 +19,19 @@ Base de datos MongoDB para historial y usuarios.
 
 Totalmente escalable y listo para producción.
 
-Instalación de Dependencias
+Instalación de Dependencias:
+
+Carpeta raiz:
+
+npm install @google/generative-ai@^0.24.1 axios@^1.13.2 body-parser@^1.20.2 cors@^2.8.5 dotenv@^16.6.1 express@^4.18.2 jspdf@^3.0.4 jspdf-autotable@^5.0.2 markdown-pdf@^11.0.0 mongoose@^7.6.0 openai@^4.0.0 pdfkit@^0.17.2
+
 Frontend
 
 Instala las dependencias principales del frontend:
 
 cd frontend
-npm install react react-dom axios vite
-npm install react-router-dom eslint prettier --save-dev
-cd ..
 
-Backend
-
-Instala las dependencias necesarias para el backend:
-
-cd backend
-npm install express cors dotenv mongoose axios
-npm install nodemon --save-dev
-cd ..
-
-Configuración del Entorno
+npm install axios@^1.13.2 react@^19.2.0 react-dom@^19.2.0
 
 Crea un archivo .env dentro de la carpeta backend con:
 
@@ -47,9 +40,8 @@ MONGO_URI=mongodb://localhost:27017/smae
 PORT=4000
 
 Cómo Ejecutar el Proyecto
-Iniciar el backend
-cd backend
-npm run dev
+iniciar el backend
+npm start
 
 Iniciar el frontend
 cd frontend
